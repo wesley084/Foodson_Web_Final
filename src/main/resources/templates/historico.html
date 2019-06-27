@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Foodson | Historico</title>
+<link rel="stylesheet" type="text/css" media="screen"
+	href="css/principal.css">
+<link rel="stylesheet" type="text/css" media="screen"
+	href="css/bootstrap.min.css">
+<script src="script/bootstrap.min.js"></script>
+</head>
+<body>
+	<div id="contenty">
+		<div id="menu">
+			<div class="menu-item" id="inicio">
+				<a href="/index" class="menu-txt">🏠 INICIO</a>
+			</div>
+			<div sec:authorize="hasAnyRole('ADMIN')" class="menu-item"
+				id="addPrato">
+				<a href="/cadastroPrato" class="menu-txt">🍝 ADICIONAR PRATO</a>
+			</div>
+			<div class="menu-item" id="listaPratos">
+				<a href="/listarPratos" class="menu-txt">📝 LISTA DE PRATOS</a>
+			</div>
+			<div sec:authorize="hasAnyRole('USER')" class="menu-item" id="cesta">
+				<a href="/cesta" class="menu-txt">🛒 CESTA</a>
+			</div>
+			<div sec:authorize="hasAnyRole('USER')" class="menu-item" id="cesta">
+				<a href="/historico" class="menu-txt">📜 HISTORICO</a>
+			</div>
+			<div sec:authorize="isAnonymous()" class="menu-item" id="entrar">
+				<a href="/login" class="menu-txt">🙌 ENTRAR</a>
+			</div>
+			<div sec:authorize="isAnonymous()" class="menu-item" id="entrar">
+				<a href="/cadastroPessoa" class="menu-txt">👶 CADASTRAR-SE</a>
+			</div>
+			<div sec:authorize="isAuthenticated()" class="menu-item" id="sair">
+				<a href="/logout" class="menu-txt">👋 SAIR</a>
+			</div>
+			<hr>
+		</div>
+		<br>
+
+		<div th:if="${#lists.isEmpty(historico)}" style="text-align: center;">
+			<br>
+			Aqui fica seu historico de compras, mas você ainda não tem nada aqui, vamos lá comprar?<br>
+			<br> <a href="/listarPratos">
+				<button type="button" class="btn btn-primary">👨‍🍳 Pratos</button>
+			</a>
+		</div>
+
+		<table th:if="${!#lists.isEmpty(historico)}" class="table">
+			<thead>
+				<tr>
+					<th scope="col">Pratos do pedido</th>
+					<th scope="col">Valor do pedido</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="pedido: ${historico}">
+					<td th:text="${pedido.mostrarPratos()}"></td>
+					<td th:text="'$ ' + ${pedido.valor}"></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

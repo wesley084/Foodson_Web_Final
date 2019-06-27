@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Foodson</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="img/India_Map.png" />
+<link rel="stylesheet" type="text/css" media="screen"
+	href="css/principal.css">
+</head>
+<body>
+	<div id="contenty">
+		<div id="menu">
+			<div class="menu-item" id="inicio">
+				<a href="/index" class="menu-txt">🏠 INICIO</a>
+			</div>
+			<div sec:authorize="hasAnyRole('ADMIN')" class="menu-item"
+				id="addPrato">
+				<a href="/cadastroPrato" class="menu-txt">🍝 ADICIONAR PRATO</a>
+			</div>
+			<div class="menu-item" id="listaPratos">
+				<a href="/listarPratos" class="menu-txt">📝 LISTA DE PRATOS</a>
+			</div>
+			<div sec:authorize="hasAnyRole('USER')" class="menu-item" id="cesta">
+				<a href="/cesta" class="menu-txt">🛒 CESTA</a>
+			</div>
+			<div sec:authorize="hasAnyRole('USER')" class="menu-item" id="cesta">
+				<a href="/historico" class="menu-txt">📜 HISTORICO</a>
+			</div>
+			<div sec:authorize="isAnonymous()" class="menu-item" id="entrar">
+				<a href="/login" class="menu-txt">🙌 ENTRAR</a>
+			</div>
+			<div sec:authorize="isAnonymous()" class="menu-item" id="entrar">
+				<a href="/cadastroPessoa" class="menu-txt">👶 CADASTRAR-SE</a>
+			</div>
+			<div sec:authorize="isAuthenticated()" class="menu-item" id="sair">
+				<a href="/logout" class="menu-txt">👋 SAIR</a>
+			</div>
+			<hr>
+		</div>
+		<br> <br>
+		<div id="pratos-principais">
+			<H2>PRATOS ESPECIAIS</H2>
+		</div>
+		<br>
+		<div id="pratos">
+			<div class="prato">
+				<img src="img/Vindaloo.jpg" class="pic">
+				<p>
+					<b>Vindaloo:</b> Este prato possui influências portuguesas em seu
+					tempero. A receita leva carne de porco, pimenta, cardamomo, alho,
+					gengibre, vinagre, alho e pó de mostarda.
+				</p>
+				<b>BTC $0,0010</b>
+			</div>
+			<div class="prato" id="pratox">
+				<img src="img/Naan.jpg" class="pic">
+				<p>
+					<b>Naan:</b> É um pão feito com água, fermento, farinha, e alho com
+					hortelã. O naan acompanha quase todas as refeições e pode, também,
+					ser consumido com batatas.
+				</p>
+				<b>BTC $0,00019</b>
+			</div>
+			<div class="prato">
+				<img src="/img/Meen-Moilee.jpg" class="pic">
+				<p>
+					<b>Meen Moilee:</b> Um prato muito popular em toda a Índia, tem
+					modos de preparo diferentes conforme a região do país. O preparo
+					deste leva peixe, coco, tomate e especiarias.
+				</p>
+				<b>BTC $0,00034</b>
+			</div>
+			<div class="prato">
+				<img src="img/Pani-Puri.jpg" class="pic">
+				<p>
+					<b>Pani Puri:</b> Bolinho de pão frito e recheado com vegetais e
+					chutney. Está mais para um petisco do que um prato e deve ser
+					comido de uma vez, sem morder.
+				</p>
+				<b>BTC $0,00029</b>
+			</div>
+			<div class="prato">
+				<img src="img/Vada-Pav.jpg" class="pic">
+				<p>
+					<b>Vada Pav:</b> Comumente encontrada nas ruas indianas. Trata-se
+					de um sanduíche vegano feito com hambúrguer de batata no pav, um
+					tipo de pão.
+				</p>
+				<b>BTC $0,00019</b>
+			</div>
+		</div>
+
+		<div id="rodape">
+			<hr>
+			<p class="rod_item">(87) 9 8734-1212 - Indian Foods</p>
+			<p class="rod_item">11-04-2017</p>
+			<p class="rod_item">Wesley C</p>
+			<hr>
+		</div>
+	</div>
+	<script src="script/principal.js"></script>
+</body>
+
+</html>

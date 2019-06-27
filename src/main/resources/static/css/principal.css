@@ -1,0 +1,162 @@
+* {
+	padding: 0;
+	margin: 0;
+	font-family: "Calibri";
+	cursor: default;
+	text-decoration: none;
+}
+
+#contenty {
+	vertical-align: middle;
+}
+
+#menu {
+	position: relative;
+	text-align: center;
+	top: 0;
+	left: 0%;
+	width: 100%;
+	font-size: 18px;
+	font-weight: bold;
+	background-color: rgba(148, 148, 148, 0.466);
+	display: inline-block;
+}
+
+.menu-item {
+	color: black;
+	display: inline-block;
+	padding-bottom: 10px;
+	padding-top: 10px;
+	left: 0.5%;
+	right: 0.5%;
+	width: 19%;
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+.menu-item:hover {
+	background-color: rgba(148, 148, 148, 0.603);
+}
+
+.menu-txt {
+	cursor: pointer;
+}
+
+#rodape {
+	background-color: rgba(148, 148, 148, 0.466);
+	word-spacing: 1px;
+	font-size: 60%;
+	position: fixed;
+	bottom: 0%;
+	left: 0%;
+	width: 100%;
+	text-align: center;
+}
+
+#rodape2 {
+	background-color: rgba(148, 148, 148, 0.466);
+	word-spacing: 1px;
+	font-size: 60%;
+	position: relative;
+	bottom: 0%;
+	left: 0%;
+	width: 100%;
+	text-align: center;
+	display: table;
+}
+
+.pratos {
+	width: 100%;
+	display: inline-block;
+}
+
+.prato {
+	float: left;
+	padding: 0.5%;
+	left: 0.5%;
+	right: 0.5%;
+	width: 19%;
+	text-align: center;
+	word-spacing: 1px;
+	font-size: 99%;
+}
+
+.prato :hover {
+	-moz-transform: scale(1.05);
+	-webkit-transform: scale(1.05);
+	transform: scale(1.05);
+}
+
+.pic {
+	width: 50%;
+	height: 82%;
+	border-radius: 50%;
+}
+
+#sobre-nos {
+	text-align: center;
+	position: relative;
+	width: 70%;
+	left: 15%;
+}
+
+#pratos-principais {
+	top: 32px;
+	word-spacing: 2px;
+	text-align: center;
+	background: rgba(148, 148, 148, 0.466);
+}
+
+.div-form-label {
+	word-spacing: 2px;
+	text-align: center;
+	background: rgba(148, 148, 148, 0.466);
+}
+
+.div-form-input {
+	word-spacing: 2px;
+	text-align: center;
+	background: rgba(148, 148, 148, 0.336);
+}
+
+.button-red {
+
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	color: #050505;
+	padding: 9px 16px;
+	background: -moz-linear-gradient(
+		top,
+		#ff0000 0%,
+		#8a1212);
+	background: -webkit-gradient(
+		linear, left top, left bottom,
+		from(#ff0000),
+		to(#8a1212));
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	border: 2px solid #000000;
+	-moz-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.2),
+		inset 0px 0px 1px rgba(255,255,255,0.3);
+	-webkit-box-shadow:
+		0px 1px 3px rgba(000,000,000,0.2),
+		inset 0px 0px 1px rgba(255,255,255,0.3);
+	box-shadow:
+		0px 1px 3px rgba(000,000,000,0.2),
+		inset 0px 0px 1px rgba(255,255,255,0.3);
+	text-shadow:
+		0px -1px 0px rgba(000,000,000,0.2),
+		0px 1px 0px rgba(255,255,255,0.3);
+}
+
+
+
+.aaa {
+	background-color: rgba(148, 148, 148, 0.603);
+}

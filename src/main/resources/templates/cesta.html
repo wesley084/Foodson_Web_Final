@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Foodson | Cesta</title>
+
+<link rel="stylesheet" type="text/css" media="screen"
+	href="css/principal.css">
+<link rel="stylesheet" type="text/css" media="screen"
+	href="css/bootstrap.min.css">
+
+<script src="script/bootstrap.min.js"></script>
+</head>
+<body>
+
+	<div id="contenty">
+		<div id="menu">
+			<div class="menu-item" id="inicio">
+				<a href="/index" class="menu-txt">🏠 INICIO</a>
+			</div>
+			<div sec:authorize="hasAnyRole('ADMIN')" class="menu-item"
+				id="addPrato">
+				<a href="/cadastroPrato" class="menu-txt">🍝 ADICIONAR PRATO</a>
+			</div>
+			<div class="menu-item" id="listaPratos">
+				<a href="/listarPratos" class="menu-txt">📝 LISTA DE PRATOS</a>
+			</div>
+			<div sec:authorize="hasAnyRole('USER')" class="menu-item" id="cesta">
+				<a href="/cesta" class="menu-txt">🛒 CESTA</a>
+			</div>
+			<div sec:authorize="hasAnyRole('USER')" class="menu-item" id="cesta">
+				<a href="/historico" class="menu-txt">📜 HISTORICO</a>
+			</div>
+			<div sec:authorize="isAnonymous()" class="menu-item" id="entrar">
+				<a href="/login" class="menu-txt">🙌 ENTRAR</a>
+			</div>
+			<div sec:authorize="isAnonymous()" class="menu-item" id="entrar">
+				<a href="/cadastroPessoa" class="menu-txt">👶 CADASTRAR-SE</a>
+			</div>
+			<div sec:authorize="isAuthenticated()" class="menu-item" id="sair">
+				<a href="/logout" class="menu-txt">👋 SAIR</a>
+			</div>
+			<hr>
+		</div>
+		<br>
+		<div th:if="${ #lists.isEmpty(pratos)}" style="text-align: center;">
+			Vá até a lista, escolha algum prato!<br><br>
+			<a href="/listarPratos">
+			<button type="button" class="btn btn-primary">👨‍🍳 Pratos</button>
+			</a>
+		</div>			
+		<table th:if="${!#lists.isEmpty(pratos)}" class="table">
+			<thead>
+				<tr>
+					<th scope="col">Imagem</th>
+					<th scope="col">Nome</th>
+					<th scope="col">Preço</th>
+					<th scope="col"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="prato: ${pratos}">
+					<td><img width="100" height="100" alt=""
+						th:src="@{'/imagens/'+${prato.nome}+.png}" /></td>
+					<td th:text="${prato.nome}"></td>
+					<td th:text="'$ ' + ${ prato.preco}"></td>
+					<td><a th:href="@{/removerCesta/{id}(id = ${prato.id})}">
+							<button type="button" class="btn btn-danger">👎 Remover</button>
+					</a></td>
+				</tr>
+			</tbody>
+		</table>
+		<hr>
+		<div th:if="${!#lists.isEmpty(pratos)}"
+			style="width: 100%; text-align: center;">
+			<a
+				th:href="@{/confirmarPedido}">
+				<button type="button" class="btn btn-success">😋 Confirmar pedido</button>
+			</a>
+		</div>
+		
+	</div>
+</body>
+</html>
